@@ -3,6 +3,8 @@ set -euo pipefail
 
 script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 source_root=$(cd -- "${script_dir}/.." && pwd)
+repository_url='https://github.com/mohammadsadeghforoughi/DeployThisShit'
+installer_url='https://raw.githubusercontent.com/mohammadsadeghforoughi/DeployThisShit/main/release/deploythisshit-installer.sh'
 bundle_temp=$(mktemp -d /tmp/deploythisshit-bundle.XXXXXX)
 cleanup() { rm -rf "${bundle_temp}"; }
 trap cleanup EXIT
@@ -41,3 +43,5 @@ chmod 0755 "${source_root}/release/deploythisshit-installer.sh"
 printf 'Created %s (%s)\n' \
   "${source_root}/release/deploythisshit-installer.sh" \
   "$(du -h "${source_root}/release/deploythisshit-installer.sh" | cut -f1)"
+printf 'Repository: %s\n' "${repository_url}"
+printf 'Public installer after pushing this artifact: %s\n' "${installer_url}"

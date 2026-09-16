@@ -6,6 +6,7 @@ readonly green='\033[0;32m'
 readonly amber='\033[0;33m'
 readonly bold='\033[1m'
 readonly reset='\033[0m'
+readonly project_repository='https://github.com/mohammadsadeghforoughi/DeployThisShit'
 
 info() { printf '%b\n' "${bold}→${reset} $*"; }
 success() { printf '%b\n' "${green}✓${reset} $*"; }
@@ -119,7 +120,7 @@ if (( ${#missing_bootstrap_packages[@]} > 0 )); then
   apt-get install -y "${missing_bootstrap_packages[@]}"
 fi
 
-printf '\n%s\n' "Create a Cloudflare API token with these permissions for the zone you want to use:"
+printf '\n%s\n' "Create a Cloudflare user or account API token with these permissions for the zone you want to use:"
 printf '  %s\n' "Zone → Zone → Read" "Zone → DNS → Edit"
 printf '%s\n\n' "The token is hidden while you type and is never written to the installation log."
 
@@ -130,6 +131,23 @@ while [[ -z ${cloudflare_token} ]]; do
 done
 
 cloudflare_api='https://api.cloudflare.com/client/v4'
+cloudflare_account_id=''
+token_verify_endpoint='/user/tokens/verify'
+if [[ ${cloudflare_token} == cfat_* ]]; then
+  success "Detected a Cloudflare account API token"
+  while [[ ! ${cloudflare_account_id} =~ ^[a-fA-F0-9]{32}$ ]]; do
+    read -r -p "Cloudflare Account ID: " cloudflare_account_id
+    if [[ ! ${cloudflare_account_id} =~ ^[a-fA-F0-9]{32}$ ]]; then
+      warn "The Account ID must be the 32-character ID shown in Cloudflare's token test command."
+    fi
+  done
+  token_verify_endpoint="/accounts/${cloudflare_account_id}/tokens/verify"
+elif [[ ${cloudflare_token} == cfut_* ]]; then
+  success "Detected a Cloudflare user API token"
+else
+  warn "This token uses a legacy or unrecognized prefix; testing it as a user API token."
+fi
+
 cloudflare_get() {
   local endpoint=$1
   curl -fsS \
@@ -151,11 +169,15 @@ cloudflare_write() {
 }
 
 info "Testing the Cloudflare token"
-if ! token_response=$(cloudflare_get '/user/tokens/verify' 2>/dev/null); then
-  fail "Cloudflare rejected the token. Check the token and try again."
+if ! token_response=$(curl -sS \
+  -H "Authorization: Bearer ${cloudflare_token}" \
+  -H 'Content-Type: application/json' \
+  "${cloudflare_api}${token_verify_endpoint}" 2>/dev/null); then
+  fail "Could not reach Cloudflare to test the token. Check the server's internet connection."
 fi
 if ! jq -e '.success == true and .result.status == "active"' >/dev/null <<<"${token_response}"; then
-  fail "The Cloudflare token is not active."
+  token_error=$(jq -r '.errors[0].message // "The token is not active."' <<<"${token_response}" 2>/dev/null || true)
+  fail "Cloudflare rejected the token: ${token_error:-unknown error}"
 fi
 success "Cloudflare accepted the token"
 
@@ -394,5 +416,6 @@ printf 'Application domains: %b<name>.%s%b\n\n' "${bold}" "${apps_base_domain}" 
 printf '%s\n' "Save the admin token in a password manager. It is also stored in ${environment_file}."
 printf '%s\n' "DNS records use DNS-only mode so traffic reaches the server's Certbot certificate directly."
 printf '%s\n' "Next: open the dashboard, then pair a developer machine with 'deploythisshit init'."
+printf 'Source and updates: %s\n' "${project_repository}"
 
 exit 0

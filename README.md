@@ -78,28 +78,31 @@ The normal setup is one interactive script on a fresh Ubuntu 22.04 or 24.04 serv
 
 - the domain uses Cloudflare nameservers;
 - TCP ports 22, 80, and 443 reach the server;
-- you have a scoped Cloudflare API **token** with `Zone → Zone → Read` and `Zone → DNS → Edit` for the domains you want it to manage.
+- you have a scoped Cloudflare user (`cfut_`) or account (`cfat_`) API token with `Zone → Zone → Read` and `Zone → DNS → Edit` for the domains you want it to manage. Account-token users also need the 32-character Account ID shown in Cloudflare's token test command.
 
-Build the self-contained installer from this checkout, then copy it to the server:
+On the Ubuntu server, download the self-contained installer directly from this repository:
+
+```bash
+curl -fL https://raw.githubusercontent.com/mohammadsadeghforoughi/DeployThisShit/main/release/deploythisshit-installer.sh \
+  -o /tmp/deploythisshit-installer.sh
+sudo bash /tmp/deploythisshit-installer.sh
+```
+
+No Git, Node.js, npm, or repository checkout is needed on the server. The installer handles the rest interactively.
+
+To produce an updated installer while developing DeployThisShit, build it and commit the generated artifact:
 
 ```bash
 npm ci
 npm run bundle:installer
-scp release/deploythisshit-installer.sh ubuntu@SERVER_IP:/tmp/
+bash release/deploythisshit-installer.sh --verify-bundle
 ```
 
-Connect to the server and run the one file:
-
-```bash
-ssh ubuntu@SERVER_IP
-sudo bash /tmp/deploythisshit-installer.sh
-```
-
-The installer tests the Cloudflare token, lists every domain the token can access, and lets the user choose one by number. It detects and installs Node.js 22, Docker, Nginx, Certbot, and the Cloudflare DNS plugin only when needed. It then asks for simple subdomain choices, detects the server's public IPv4, obtains the dashboard and wildcard certificates, creates the dashboard DNS record, starts the agent, and prints the dashboard URL and admin token.
+The installer detects whether the Cloudflare credential is a user or account token, tests it with the correct endpoint, lists every domain the token can access, and lets the user choose one by number. It detects and installs Node.js 22, Docker, Nginx, Certbot, and the Cloudflare DNS plugin only when needed. It then asks for simple subdomain choices, detects the server's public IPv4, obtains the dashboard and wildcard certificates, creates the dashboard DNS record, starts the agent, and prints the dashboard URL and admin token.
 
 No manual DNS setup is required. DNS records are created in DNS-only mode so the server's Certbot certificate is used directly. The runtime Cloudflare token is sent only to the loopback agent API and encrypted at rest; it is never kept in the service environment. Certbot keeps its renewal credential in a separate root-only file.
 
-For release distribution, publish `release/deploythisshit-installer.sh` as a downloadable release asset. Users can download that one file to `/tmp` and run the same `sudo bash` command; they do not need Git, Node.js, npm, or this repository on the server.
+The canonical source and issue tracker are at [github.com/mohammadsadeghforoughi/DeployThisShit](https://github.com/mohammadsadeghforoughi/DeployThisShit). A future tagged release can publish the same generated file as a GitHub release asset without changing the installation design.
 
 The lower-level `scripts/install-server.sh` and `scripts/configure-wildcard-tls.sh` remain available for advanced or automated installations.
 

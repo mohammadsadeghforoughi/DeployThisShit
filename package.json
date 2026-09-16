@@ -2,6 +2,14 @@
   "name": "deploythisshit-monorepo",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammadsadeghforoughi/DeployThisShit.git"
+  },
+  "homepage": "https://github.com/mohammadsadeghforoughi/DeployThisShit#readme",
+  "bugs": {
+    "url": "https://github.com/mohammadsadeghforoughi/DeployThisShit/issues"
+  },
   "type": "module",
   "workspaces": [
     "apps/*",
