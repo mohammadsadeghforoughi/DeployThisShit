@@ -26,6 +26,8 @@ The product combines a local, subscription-authenticated coding-agent workflow w
 
 ## Operating Context
 
+- A non-technical owner can bootstrap a fresh supported Ubuntu server by running one interactive installer.
+- The installer validates a scoped Cloudflare API token, lists its accessible zones for selection, and installs missing system prerequisites.
 - The developer works in a local project directory with Node.js and Docker available.
 - The developer runs `npx deploythisshit` or the installed `DeployThisShit` launcher.
 - A paired Ubuntu server runs the agent, Docker, Nginx, and the dashboard.
@@ -55,7 +57,7 @@ There are no customer claims, production benchmarks, testimonials, logos, or ext
 
 ## Product Principles
 
-1. One command, visible consequences.
+1. One guided server script and one developer deploy command, with visible consequences.
 2. AI proposes; deterministic systems deploy.
 3. The user's server and credentials remain theirs.
 4. Failure preserves the last healthy release.

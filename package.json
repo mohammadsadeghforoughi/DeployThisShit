@@ -14,7 +14,8 @@
     "dev:server": "npm run dev -w @deploythisshit/server",
     "dev:dashboard": "npm run dev -w @deploythisshit/dashboard",
     "dev:cli": "npm run dev -w deploythisshit",
-    "start": "npm run start -w @deploythisshit/server"
+    "start": "npm run start -w @deploythisshit/server",
+    "bundle:installer": "bash scripts/build-installer-bundle.sh"
   },
   "engines": {
     "node": ">=22"

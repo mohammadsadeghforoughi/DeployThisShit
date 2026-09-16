@@ -40,9 +40,11 @@ for path in \
   fi
 done
 
-export DEBIAN_FRONTEND=noninteractive
-apt-get update
-apt-get install -y ca-certificates docker.io nginx apache2-utils certbot python3-certbot-dns-cloudflare
+if [[ ${DTS_BOOTSTRAP_MODE:-0} != 1 ]]; then
+  export DEBIAN_FRONTEND=noninteractive
+  apt-get update
+  apt-get install -y ca-certificates docker.io nginx apache2-utils certbot python3-certbot-dns-cloudflare
+fi
 systemctl enable --now docker nginx
 
 install -d -m 0755 \
@@ -107,9 +109,11 @@ systemctl daemon-reload
 systemctl enable --now deploythisshit
 systemctl reload nginx
 
-echo
-echo "DeployThisShit is installed and listening through Nginx."
-echo "Next: point ${management_host} to this server, then run:"
-echo "  sudo ./scripts/configure-wildcard-tls.sh ${management_host} apps.example.com you@example.com"
-echo
-echo "The dashboard admin token is stored in ${environment_file}."
+if [[ ${DTS_BOOTSTRAP_MODE:-0} != 1 ]]; then
+  echo
+  echo "DeployThisShit is installed and listening through Nginx."
+  echo "Next: point ${management_host} to this server, then run:"
+  echo "  sudo ./scripts/configure-wildcard-tls.sh ${management_host} apps.example.com you@example.com"
+  echo
+  echo "The dashboard admin token is stored in ${environment_file}."
+fi

@@ -86,7 +86,7 @@ export class CloudflareService {
       name: app.domain,
       content: config.serverIpv4,
       ttl: 1,
-      proxied: true,
+      proxied: false,
       comment
     };
     const response = await fetch(existing ? `${endpoint}/${encodeURIComponent(existing.id)}` : endpoint, {

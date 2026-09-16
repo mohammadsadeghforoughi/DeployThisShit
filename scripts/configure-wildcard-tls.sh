@@ -80,4 +80,6 @@ systemctl reload nginx
 
 echo
 echo "HTTPS is active for ${management_host} and *.${apps_base_domain}."
-echo "Use a separate Cloudflare token in the dashboard to let deployments create application DNS records."
+if [[ ${DTS_BOOTSTRAP_MODE:-0} != 1 ]]; then
+  echo "Use a separate Cloudflare token in the dashboard to let deployments create application DNS records."
+fi
