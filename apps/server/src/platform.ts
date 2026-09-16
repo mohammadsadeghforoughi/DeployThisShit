@@ -34,7 +34,7 @@ function safeImageTag(value: string): string {
   return value;
 }
 
-function nginxConfig(app: AppRecord, hostPort: number, config: ServerConfig, basicAuth: boolean): string {
+export function nginxConfig(app: AppRecord, hostPort: number, config: ServerConfig, basicAuth: boolean): string {
   const auth = basicAuth
     ? `\n    auth_basic "Restricted";\n    auth_basic_user_file ${join(config.dataDir, "auth", `${app.id}.htpasswd`)};`
     : "";
@@ -60,9 +60,8 @@ server {
 }
 
 server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
-    http2 on;
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
     server_name ${app.domain};
     ssl_certificate ${config.tlsCertificatePath};
     ssl_certificate_key ${config.tlsKeyPath};

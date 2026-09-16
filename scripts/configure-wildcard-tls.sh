@@ -61,9 +61,33 @@ grep -Ev '^DTS_(TLS_DOMAIN_SUFFIX|TLS_CERTIFICATE|TLS_KEY)=' "${environment_file
 install -m 0600 "${next_environment}" "${environment_file}"
 rm -f "${next_environment}"
 
+nginx_config=/etc/nginx/sites-available/deploythisshit.conf
+nginx_next=$(mktemp /etc/nginx/sites-available/deploythisshit.conf.next.XXXXXX)
+nginx_previous=$(mktemp)
+had_previous=false
+if [[ -f ${nginx_config} ]]; then
+  cp "${nginx_config}" "${nginx_previous}"
+  had_previous=true
+fi
+
 sed "s|@MANAGEMENT_HOST@|${management_host}|g" \
   "${source_root}/deploy/nginx-dashboard-tls.conf" \
-  > /etc/nginx/sites-available/deploythisshit.conf
+  > "${nginx_next}"
+install -m 0644 "${nginx_next}" "${nginx_config}"
+rm -f "${nginx_next}"
+
+if ! nginx -t; then
+  if [[ ${had_previous} == true ]]; then
+    install -m 0644 "${nginx_previous}" "${nginx_config}"
+  else
+    rm -f "${nginx_config}"
+  fi
+  rm -f "${nginx_previous}"
+  nginx -t >/dev/null 2>&1 || true
+  echo "The generated Nginx TLS configuration was rejected; the previous configuration was restored." >&2
+  exit 1
+fi
+rm -f "${nginx_previous}"
 
 install -d -m 0755 /etc/letsencrypt/renewal-hooks/deploy
 cat > /etc/letsencrypt/renewal-hooks/deploy/50-deploythisshit-nginx <<'HOOK'
@@ -74,7 +98,6 @@ systemctl reload nginx
 HOOK
 chmod 0755 /etc/letsencrypt/renewal-hooks/deploy/50-deploythisshit-nginx
 
-nginx -t
 systemctl restart deploythisshit
 systemctl reload nginx
 
