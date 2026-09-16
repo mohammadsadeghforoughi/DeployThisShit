@@ -1,0 +1,27 @@
+{
+  "name": "deploythisshit-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @deploythisshit/shared && npm run build -w @deploythisshit/dashboard && npm run build -w @deploythisshit/server && npm run build -w deploythisshit",
+    "typecheck": "npm run build -w @deploythisshit/shared && npm run typecheck --workspaces --if-present",
+    "test": "npm run build && npm run test --workspaces --if-present",
+    "dev:server": "npm run dev -w @deploythisshit/server",
+    "dev:dashboard": "npm run dev -w @deploythisshit/dashboard",
+    "dev:cli": "npm run dev -w deploythisshit",
+    "start": "npm run start -w @deploythisshit/server"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

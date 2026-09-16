@@ -1,0 +1,29 @@
+{
+  "name": "deploythisshit",
+  "version": "0.1.0",
+  "description": "One-command deployment to your own Ubuntu server.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "deploythisshit": "dist/index.js",
+    "DeployThisShit": "dist/index.js",
+    "dts": "dist/index.js"
+  },
+  "files": ["dist", "README.md"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test dist/**/*.test.js"
+  },
+  "dependencies": {
+    "@deploythisshit/shared": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

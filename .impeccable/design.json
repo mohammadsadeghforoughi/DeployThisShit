@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-16T10:47:22+03:30",
+  "title": "Design System: DeployThisShit",
+  "extensions": {
+    "colorMeta": {
+      "safety-vermilion": { "role": "primary", "displayName": "Safety Vermilion", "canonical": "#ec4d27", "tonalRamp": ["oklch(15% 0.11 35)", "oklch(27% 0.14 35)", "oklch(39% 0.17 35)", "oklch(51% 0.19 35)", "oklch(63% 0.19 35)", "oklch(75% 0.14 35)", "oklch(87% 0.07 35)", "oklch(95% 0.025 35)"] },
+      "safety-vermilion-deep": { "role": "primary", "displayName": "Deep Vermilion", "canonical": "#b72e12", "tonalRamp": ["oklch(15% 0.1 34)", "oklch(27% 0.13 34)", "oklch(39% 0.16 34)", "oklch(51% 0.17 34)", "oklch(63% 0.15 34)", "oklch(75% 0.11 34)", "oklch(87% 0.06 34)", "oklch(95% 0.02 34)"] },
+      "paper": { "role": "neutral", "displayName": "Manifest Paper", "canonical": "#f4f1ea", "tonalRamp": ["oklch(15% 0.015 85)", "oklch(27% 0.018 85)", "oklch(39% 0.02 85)", "oklch(51% 0.021 85)", "oklch(63% 0.021 85)", "oklch(75% 0.019 85)", "oklch(87% 0.016 85)", "oklch(95% 0.012 85)"] },
+      "paper-raised": { "role": "neutral", "displayName": "Raised Paper", "canonical": "#fbfaf6", "tonalRamp": ["oklch(15% 0.01 85)", "oklch(27% 0.012 85)", "oklch(39% 0.013 85)", "oklch(51% 0.014 85)", "oklch(63% 0.014 85)", "oklch(75% 0.013 85)", "oklch(87% 0.011 85)", "oklch(95% 0.008 85)"] },
+      "carbon": { "role": "neutral", "displayName": "Carbon Ink", "canonical": "#171817", "tonalRamp": ["oklch(15% 0.006 145)", "oklch(27% 0.006 145)", "oklch(39% 0.006 145)", "oklch(51% 0.006 145)", "oklch(63% 0.005 145)", "oklch(75% 0.004 145)", "oklch(87% 0.003 145)", "oklch(95% 0.002 145)"] },
+      "carbon-muted": { "role": "neutral", "displayName": "Muted Carbon", "canonical": "#575d5e", "tonalRamp": ["oklch(15% 0.008 210)", "oklch(27% 0.01 210)", "oklch(39% 0.012 210)", "oklch(51% 0.012 210)", "oklch(63% 0.01 210)", "oklch(75% 0.008 210)", "oklch(87% 0.005 210)", "oklch(95% 0.003 210)"] },
+      "rule": { "role": "neutral", "displayName": "Manifest Rule", "canonical": "#b9b8b1", "tonalRamp": ["oklch(15% 0.009 85)", "oklch(27% 0.01 85)", "oklch(39% 0.011 85)", "oklch(51% 0.011 85)", "oklch(63% 0.01 85)", "oklch(75% 0.009 85)", "oklch(87% 0.007 85)", "oklch(95% 0.004 85)"] },
+      "rule-dark": { "role": "neutral", "displayName": "Dark Rule", "canonical": "#737673", "tonalRamp": ["oklch(15% 0.006 145)", "oklch(27% 0.007 145)", "oklch(39% 0.008 145)", "oklch(51% 0.008 145)", "oklch(63% 0.007 145)", "oklch(75% 0.006 145)", "oklch(87% 0.004 145)", "oklch(95% 0.002 145)"] },
+      "live-sage": { "role": "secondary", "displayName": "Live Sage", "canonical": "#278a52", "tonalRamp": ["oklch(15% 0.07 150)", "oklch(27% 0.1 150)", "oklch(39% 0.12 150)", "oklch(51% 0.13 150)", "oklch(63% 0.12 150)", "oklch(75% 0.09 150)", "oklch(87% 0.05 150)", "oklch(95% 0.02 150)"] },
+      "live-sage-pale": { "role": "secondary", "displayName": "Pale Live Sage", "canonical": "#dcebdd", "tonalRamp": ["oklch(15% 0.025 150)", "oklch(27% 0.035 150)", "oklch(39% 0.045 150)", "oklch(51% 0.05 150)", "oklch(63% 0.05 150)", "oklch(75% 0.04 150)", "oklch(87% 0.025 150)", "oklch(95% 0.012 150)"] },
+      "route-blue": { "role": "tertiary", "displayName": "Route Blue", "canonical": "#145db4", "tonalRamp": ["oklch(15% 0.08 255)", "oklch(27% 0.12 255)", "oklch(39% 0.15 255)", "oklch(51% 0.16 255)", "oklch(63% 0.14 255)", "oklch(75% 0.1 255)", "oklch(87% 0.055 255)", "oklch(95% 0.02 255)"] },
+      "danger-pale": { "role": "tertiary", "displayName": "Pale Warning", "canonical": "#f6ded7", "tonalRamp": ["oklch(15% 0.025 30)", "oklch(27% 0.035 30)", "oklch(39% 0.045 30)", "oklch(51% 0.05 30)", "oklch(63% 0.048 30)", "oklch(75% 0.038 30)", "oklch(87% 0.024 30)", "oklch(95% 0.01 30)"] },
+      "focus-orange": { "role": "primary", "displayName": "Focus Orange", "canonical": "#ff6038", "tonalRamp": ["oklch(15% 0.11 36)", "oklch(27% 0.15 36)", "oklch(39% 0.18 36)", "oklch(51% 0.2 36)", "oklch(63% 0.2 36)", "oklch(75% 0.15 36)", "oklch(87% 0.08 36)", "oklch(95% 0.03 36)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Manifest Display", "purpose": "Page names and the login proposition." },
+      "headline": { "displayName": "Application Headline", "purpose": "Application and section titles." },
+      "body": { "displayName": "Interface Body", "purpose": "Navigation, controls, and explanatory copy." },
+      "data": { "displayName": "Machine Data", "purpose": "Hashes, ports, timestamps, codes, and measurements." }
+    },
+    "shadows": [
+      { "name": "authentication-layer", "value": "0 24px 70px rgba(0, 0, 0, .28)", "purpose": "Login sheet over the carbon authentication field only." },
+      { "name": "selected-route", "value": "inset 0 -2px 0 #ec4d27", "purpose": "Selected manifest row routing rule." }
+    ],
+    "motion": [
+      { "name": "route-progress", "value": "2.4s cubic-bezier(.16, 1, .3, 1)", "purpose": "Left-to-right release progress in the active deployment lane." },
+      { "name": "control-response", "value": "140ms cubic-bezier(.16, 1, .3, 1)", "purpose": "Single-pixel control lift and return." }
+    ],
+    "breakpoints": [
+      { "name": "compact-rail", "value": "1180px" },
+      { "name": "flow-inspector", "value": "900px" },
+      { "name": "top-rail", "value": "680px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one decisive operation in a local region.",
+      "html": "<button class=\"ds-button-primary\">DEPLOY RELEASE</button>",
+      "css": ".ds-button-primary{min-height:40px;padding:0 15px;border:1px solid var(--orange-dark,#b72e12);border-radius:4px;color:#fff;background:var(--orange,#ec4d27);font:720 12px 'Archivo Variable',sans-serif;transition:background-color 140ms ease-out,transform 140ms cubic-bezier(.16,1,.3,1)}.ds-button-primary:hover{background:var(--orange-dark,#b72e12);transform:translateY(-1px)}.ds-button-primary:active{transform:translateY(0)}.ds-button-primary:focus-visible{outline:2px solid var(--focus,#ff6038);outline-offset:2px;box-shadow:0 0 0 1px var(--ink,#171817)}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A reversible or supporting operation.",
+      "html": "<button class=\"ds-button-secondary\">ROLL BACK</button>",
+      "css": ".ds-button-secondary{min-height:40px;padding:0 15px;border:1px solid var(--rule-dark,#737673);border-radius:4px;color:var(--ink,#171817);background:transparent;font:720 12px 'Archivo Variable',sans-serif;transition:background-color 140ms ease-out,transform 140ms cubic-bezier(.16,1,.3,1)}.ds-button-secondary:hover{background:#e8e5de;transform:translateY(-1px)}.ds-button-secondary:focus-visible{outline:2px solid var(--focus,#ff6038);outline-offset:2px;box-shadow:0 0 0 1px var(--ink,#171817)}"
+    },
+    {
+      "name": "Manifest Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "A compact credentials or settings field on raised paper.",
+      "html": "<input class=\"ds-field\" placeholder=\"Server value\" />",
+      "css": ".ds-field{width:100%;min-height:40px;padding:8px 10px;color:var(--ink,#171817);background:var(--paper-raised,#fbfaf6);border:1px solid var(--rule-dark,#737673);border-radius:3px;font:400 16px 'Archivo Variable',sans-serif}.ds-field::placeholder{color:#686d6c}.ds-field:focus-visible{outline:2px solid var(--focus,#ff6038);outline-offset:2px;box-shadow:0 0 0 1px var(--ink,#171817)}"
+    },
+    {
+      "name": "Rail Navigation Item",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Carbon navigation with a single active route mark.",
+      "html": "<button class=\"ds-nav-item ds-nav-item-active\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/><path d=\"m3.3 7 8.7 5 8.7-5M12 22V12\"/></svg><span>Deployments</span></button>",
+      "css": ".ds-nav-item{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;padding:0 20px;color:#c7cac5;background:#171817;border:0;border-left:3px solid transparent;font:400 14px 'Archivo Variable',sans-serif}.ds-nav-item:hover{color:#fff;background:#252724}.ds-nav-item-active{color:#fff;background:#282a27;border-left-color:var(--orange,#ec4d27)}.ds-nav-item:focus-visible{outline:2px solid var(--focus,#ff6038);outline-offset:-3px}"
+    },
+    {
+      "name": "Live Status",
+      "kind": "chip",
+      "refersTo": "",
+      "description": "A shape-and-word state mark that never relies on color alone.",
+      "html": "<span class=\"ds-status-live\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"5\" fill=\"currentColor\"/></svg>Live</span>",
+      "css": ".ds-status-live{display:inline-flex;align-items:center;gap:6px;color:#176b3b;white-space:nowrap;font:680 11px 'Archivo Variable',sans-serif}"
+    },
+    {
+      "name": "Active Deployment",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "The current release rendered as an active shipment lane.",
+      "html": "<section class=\"ds-active\"><div><span>ACTIVE DEPLOYMENT</span><h2>release-web</h2><a href=\"#\">release.apps.example.com</a></div><dl><dt>STATUS</dt><dd>● LIVE</dd><dt>RELEASE</dt><dd><code>8af31c2</code></dd></dl></section>",
+      "css": ".ds-active{display:grid;grid-template-columns:1.5fr 1fr;min-height:106px;color:var(--ink,#171817);background:rgba(251,250,246,.64);border:1px solid var(--rule,#b9b8b1);border-top:4px solid var(--orange,#ec4d27);font-family:'Archivo Variable',sans-serif}.ds-active>div,.ds-active dl{padding:14px 18px}.ds-active span,.ds-active dt{color:var(--ink-soft,#575d5e);font-size:9px;font-weight:750;letter-spacing:.12em}.ds-active h2{margin:6px 0;font-size:28px;line-height:1}.ds-active a{color:var(--blue,#145db4);text-underline-offset:3px}.ds-active dl{display:grid;grid-template-columns:1fr 1fr;margin:0;border-left:1px solid var(--rule,#b9b8b1)}.ds-active dd{margin:5px 0 14px;font-size:11px}.ds-active code{padding:3px 5px;background:#e3e2dd;font-family:'IBM Plex Mono',monospace}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Shipping Manifest",
+    "overview": "DeployThisShit feels like a live waybill laid across an operations desk: warm paper, carbon ink, ruled registers, route marks, and terse machine data. Its density is purposeful. The interface should reveal the relationship between application, release, route, device, and server instead of hiding those facts behind soft cards. The system is editorial but not nostalgic. Real operational state supplies the character; decoration stays subordinate. Safety vermilion is rare and decisive, while movement is reserved for a release that is actually progressing.",
+    "keyCharacteristics": ["Warm paper surfaces framed by carbon navigation.", "Ruled, continuous information planes instead of floating cards.", "A single safety color for primary actions, routing marks, and focus.", "Monospace only for hashes, ports, timestamps, codes, and measurements.", "State communicated with a shape, a word, and color together."],
+    "rules": [
+      { "name": "The One Route Mark Rule", "body": "Safety vermilion marks one primary action or active route in a local region; it is not a general decoration color.", "section": "colors" },
+      { "name": "The Data Earns Mono Rule", "body": "Monospace appears only when the content is code, identity, time, or measurement; ordinary navigation and prose stay in Archivo.", "section": "typography" },
+      { "name": "The Same Plane Rule", "body": "Related operational data shares one ruled surface; do not turn each fact into a floating card.", "section": "elevation" }
+    ],
+    "dos": ["Do make operational relationships visible through shared ruled planes.", "Do pair every state color with a word and a consistent icon.", "Do keep primary actions explicit: “Stop site,” “Roll back,” and “Approve device.”", "Do preserve the compact top-rail transformation below 680px.", "Do respect reduced-motion preferences for progress and control transitions."],
+    "donts": ["Don't use gradients, glass, decorative grain, or soft card stacks.", "Don't use safety vermilion as an all-purpose highlight.", "Don't use monospace to make ordinary copy look technical.", "Don't hide destructive consequences behind ambiguous icons or labels.", "Don't communicate live, stopped, deploying, or failed state through color alone."]
+  }
+}

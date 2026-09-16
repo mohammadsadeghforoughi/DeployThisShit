@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.data/
+.deploythisshit/
+.deploythisshit.json
+.env
+.env.*
+!.env.example
+*.log
+*.tar
+*.tar.gz
+.DS_Store
+.impeccable/review/
+.impeccable/config.local.json
+

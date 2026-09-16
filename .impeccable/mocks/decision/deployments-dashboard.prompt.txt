@@ -1,0 +1,7 @@
+Use case: ui-mockup
+Asset type: high-fidelity desktop web operations dashboard concept, landscape
+Primary request: Design the authenticated DeployThisShit server dashboard for a developer who operates self-hosted deployments. The interface must feel like a shipping manifest and waybill system translated into a precise modern web application, not a generic SaaS dashboard.
+Composition: carbon-black navigation rail, one continuous paper-white operational work surface, active deployment strip, ruled application register, server health, recent deployments, and a selected-site inspector.
+Palette: warm off-white paper, carbon black, vermilion safety orange, muted sage, dusty blue-gray. No gradients.
+Constraints: production-ready, WCAG-conscious, no generic card grid, no glassmorphism, no neon cyberpunk, no pill overload, no fabricated claims, no watermark.
+
